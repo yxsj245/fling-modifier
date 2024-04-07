@@ -79,7 +79,7 @@ def get_first_attachment_link(url):
             else:
                 print(f"Failed to get redirected URL for {file_url}")
         else:
-            print("No attachment link found.")
+            print("解析网页错误，请确认URL是否正确")
             return None, None
     else:
         print("Failed to retrieve the webpage.")
@@ -107,7 +107,6 @@ def download_and_extract_attachment(url):
                 unzip_file(filepath, folder_path)
                 delete_file(filepath)
                 print("下载完毕，请重新运行程序即可启动修改器界面选择对应修改器即可启动")
-                input()
         else:
             print("File already exists in target directory.")
 
@@ -161,6 +160,8 @@ if data is not None and not data["run"]:
     urldata = input("请输入需要下载的风灵月影修改器地址:")
     url = urldata
     download_and_extract_attachment(url)
+    print("程序运行完毕，按任意键退出...")
+    input()
 else:
     #启动修改器主程序
     data_dir = 'data'
